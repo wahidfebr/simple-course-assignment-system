@@ -1,4 +1,4 @@
-const {User, Profile, Category} = require("../models");
+const {User, Profile, Category, Course, StudentCourse} = require("../models");
 const {bcrypt} = require("../helpers");
 class Controller {
     static home(req, res) {
@@ -54,10 +54,25 @@ class Controller {
             .then(student => {
                 res.render("student", {student});
             })
+            .catch((err) => {
+                res.send(err);
+            })
+
     }
 
     static teacher(req, res) {
-        res.send("teacher");
+        const id = req.session.UserId;
+        User.findByPk(id, {
+            include: ["TeacherCourses", "StudentCourses"]
+        })
+            .then(teacher => {
+                // res.send(teacher)
+                res.render("teacher", {teacher});
+                // return StudentCourse.findAll({where: {CourseId: teacher.TeacherCourses.id}})
+            })
+            .catch((err) => {
+                res.send(err);
+            })
     }
 
     static logout(req, res) {
