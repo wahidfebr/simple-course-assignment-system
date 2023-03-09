@@ -1,4 +1,4 @@
-const {User, Profile} = require("../models");
+const {User, Profile, Category} = require("../models");
 const {bcrypt} = require("../helpers");
 class Controller {
     static home(req, res) {
@@ -17,6 +17,9 @@ class Controller {
                 if (!bcrypt.compareSync(password, user.password)) {
                     throw "Wrong password"
                 }
+
+                req.session.UserId = user.id;
+                req.session.role = user.role;
 
                 if (user.role === "Teacher") res.redirect("/teacher");
                 if (user.role === "Student") res.redirect("/student");
@@ -44,7 +47,13 @@ class Controller {
     }
 
     static student(req, res) {
-        res.send("student");
+        const id = req.session.UserId;
+        User.findByPk(id, {
+            include: "StudentCourses"
+        })
+            .then(student => {
+                res.render("student", {student});
+            })
     }
 
     static teacher(req, res) {
