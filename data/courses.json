@@ -1,0 +1,91 @@
+[{
+  "name": "net.earthlink.Konklab",
+  "description": "Chronic postrheumatic arthropathy, unspecified knee",
+  "duration": 1,
+  "CategoryId": 5,
+  "TeacherId": 1
+}, {
+  "name": "gov.fda.Tresom",
+  "description": "Passenger in hv veh injured in collision w ped/anml nontraf",
+  "duration": 11,
+  "CategoryId": 4,
+  "TeacherId": 8
+}, {
+  "name": "com.theguardian.Opela",
+  "description": "Galeazzi's fx r rad, subs for opn fx type I/2 w delay heal",
+  "duration": 3,
+  "CategoryId": 3,
+  "TeacherId": 2
+}, {
+  "name": "com.ted.Zoolab",
+  "description": "Unsp subluxation and dislocation of sternoclavicular joint",
+  "duration": 3,
+  "CategoryId": 1,
+  "TeacherId": 12
+}, {
+  "name": "uk.co.amazon.Veribet",
+  "description": "Lacerat unsp musc/fasc/tend at thigh level, unsp thigh, subs",
+  "duration": 6,
+  "CategoryId": 4,
+  "TeacherId": 8
+}, {
+  "name": "com.vistaprint.Job",
+  "description": "Displ oblique fx shaft of r rad, subs for clos fx w nonunion",
+  "duration": 6,
+  "CategoryId": 1,
+  "TeacherId": 14
+}, {
+  "name": "com.yolasite.Fixflex",
+  "description": "Other fracture of first metacarpal bone, right hand, sequela",
+  "duration": 3,
+  "CategoryId": 4,
+  "TeacherId": 2
+}, {
+  "name": "com.hugedomains.Vagram",
+  "description": "Corros 2nd deg of unsp site right low limb, ex ank/ft, sqla",
+  "duration": 11,
+  "CategoryId": 2,
+  "TeacherId": 8
+}, {
+  "name": "cc.tiny.Konklux",
+  "description": "Toxic effect of other alcohols, assault",
+  "duration": 5,
+  "CategoryId": 3,
+  "TeacherId": 15
+}, {
+  "name": "com.jiathis.Tresom",
+  "description": "Nondisp fx of lunate, left wrist, subs for fx w malunion",
+  "duration": 5,
+  "CategoryId": 5,
+  "TeacherId": 11
+}, {
+  "name": "com.sogou.Biodex",
+  "description": "Displaced dome fx unsp talus, subs for fx w malunion",
+  "duration": 1,
+  "CategoryId": 1,
+  "TeacherId": 12
+}, {
+  "name": "fr.unblog.Redhold",
+  "description": "Lead-induced chronic gout, right hip",
+  "duration": 11,
+  "CategoryId": 4,
+  "TeacherId": 5
+}, {
+  "name": "jp.co.amazon.Gembucket",
+  "description": "Other specified diabetes mellitus with hypoglycemia",
+  "duration": 9,
+  "CategoryId": 4,
+  "TeacherId": 8
+}, {
+  "name": "com.live.Matsoft",
+  "description": "War op w nuclear radiation effects of nuclear weapon, milt",
+  "duration": 4,
+  "CategoryId": 1,
+  "TeacherId": 7
+}, {
+  "name": "com.webmd.Wrapsafe",
+  "description": "Laceration with foreign body, unspecified ankle, sequela",
+  "duration": 6,
+  "CategoryId": 1,
+  "TeacherId": 1
+}]
