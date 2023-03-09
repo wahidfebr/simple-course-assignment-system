@@ -50,6 +50,10 @@ class Controller {
     static teacher(req, res) {
         res.send("teacher");
     }
+
+    static logout(req, res) {
+        res.redirect("/");
+    }
 }
 
 module.exports = Controller;
