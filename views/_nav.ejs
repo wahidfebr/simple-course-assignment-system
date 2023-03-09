@@ -6,6 +6,11 @@
             <a class="nav-item nav-link px-3 <%= state === "home" ? `active`: "" %>" href="/">Home</a>
             <a class="nav-item nav-link px-3 <%= state === "student" ? `active`: "" %>" href="/student">Student</a>
             <a class="nav-item nav-link px-3 <%= state === "teacher" ? `active`: "" %>" href="/teacher">Teacher</a>
+            <% if (isLogin) { %>
+              <a class="nav-item nav-link px-3" href="/logout">Logout</a>
+              <% } else { %>
+                <a class="nav-item nav-link px-3" href="/login">Login</a>
+             <% } %>
           </div>
         </div>
     </nav>

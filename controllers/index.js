@@ -2,7 +2,11 @@ const {User, Profile, Category, Course, StudentCourse} = require("../models");
 const {bcrypt} = require("../helpers");
 class Controller {
     static home(req, res) {
-        res.render("index");
+        let isLogin = false;
+
+        if (req.session.UserId) isLogin = true;
+
+        res.render("index", {isLogin});
     }
 
     static loginForm(req, res) {
@@ -52,7 +56,7 @@ class Controller {
             include: "StudentCourses"
         })
             .then(student => {
-                res.render("student", {student});
+                res.render("student", {student, isLogin: true});
             })
             .catch((err) => {
                 res.send(err);
@@ -67,7 +71,7 @@ class Controller {
         })
             .then(teacher => {
                 // res.send(teacher)
-                res.render("teacher", {teacher});
+                res.render("teacher", {teacher, isLogin: true});
                 // return StudentCourse.findAll({where: {CourseId: teacher.TeacherCourses.id}})
             })
             .catch((err) => {
@@ -76,7 +80,11 @@ class Controller {
     }
 
     static logout(req, res) {
-        res.redirect("/");
+        req.session.destroy((err) => {
+            // cannot access session here
+            if (err) res.send(err)
+            else res.redirect("/login");
+        })
     }
 }
 
