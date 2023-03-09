@@ -1,4 +1,4 @@
-const {User} = require("../models");
+const {User, Profile} = require("../models");
 const {bcrypt} = require("../helpers");
 class Controller {
     static home(req, res) {
@@ -25,7 +25,22 @@ class Controller {
     }
 
     static registerForm(req, res) {
-        res.send("registerForm");
+        res.render("register-form");
+    }
+
+    static createUser(req, res) {
+        const {email, password, role, fullName, gender, phone} = req.body;
+
+        User.create({email, password, role})
+            .then((user) => {
+                return Profile.create({fullName, gender, phone, UserId: user.id});
+            })
+            .then(() => {
+                res.redirect("/login");
+            })
+            .catch((err) => {
+                res.send(err);
+            })
     }
 
     static student(req, res) {
