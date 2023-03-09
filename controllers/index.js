@@ -4,7 +4,7 @@ class Controller {
     }
 
     static loginForm(req, res) {
-        res.send("loginForm");
+        res.render("login-form");
     }
 
     static registerForm(req, res) {
