@@ -1,6 +1,6 @@
 class Controller {
     static home(req, res) {
-        res.send("home");
+        res.render("index");
     }
 
     static loginForm(req, res) {
