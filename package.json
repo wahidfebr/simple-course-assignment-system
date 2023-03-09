@@ -1,0 +1,33 @@
+{
+  "name": "simple-course-assignment-system",
+  "version": "1.0.0",
+  "description": "simple course assignment to student with github url (dummy url) and grading system for teacher",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wahidfebr/simple-course-assignment-system.git"
+  },
+  "author": "wahidfebr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wahidfebr/simple-course-assignment-system/issues"
+  },
+  "homepage": "https://github.com/wahidfebr/simple-course-assignment-system#readme",
+  "dependencies": {
+    "argon2": "^0.30.3",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "pg": "^8.10.0",
+    "sequelize": "^6.29.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21",
+    "sequelize-cli": "^6.6.0"
+  }
+}
