@@ -1,17 +1,17 @@
 [
     {
-        "name": "Fullstack Web Developer"
+        "name": "javascript"
     },
     {
-        "name": "Frontend Web Developer"
+        "name": "python"
     },
     {
-        "name": "Backend Web Developer"
+        "name": "java"
     },
     {
-        "name": "Data Scientist"
+        "name": "rust"
     },
     {
-        "name": "Odoo Developer"
+        "name": "php"
     }
 ]
