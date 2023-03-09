@@ -1,0 +1,12 @@
+<section style="padding-bottom: 65px;">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand ml-3" href="/"><strong>SCAS</strong></a>
+        <div class="collapse navbar-collapse">
+          <div class="navbar-nav ml-5">
+            <a class="nav-item nav-link px-3 <%= state === "home" ? `active`: "" %>" href="/">Home</a>
+            <a class="nav-item nav-link px-3 <%= state === "student" ? `active`: "" %>" href="/student">Student</a>
+            <a class="nav-item nav-link px-3 <%= state === "teacher" ? `active`: "" %>" href="/teacher">Teacher</a>
+          </div>
+        </div>
+    </nav>
+</section>
