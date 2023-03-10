@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+</head>
+<body>
+    <%- include('_nav', {state: "student", isLogin}) %>
+    <h1>Welcome student</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Duration</th>
+                <th>Category</th>
+                <th>Teacher</th>
+                <th>Url repo course</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Start date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% student.StudentCourses.forEach((el, index) => { %>
+                <tr>
+                    <td><%= ++index %></td>
+                    <td><%= el.name %></td>
+                    <td><%= el.description %></td>
+                    <td><%= el.duration %></td>
+                    <td><%= el.CategoryId %></td>
+                    <td><%= el.TeacherId %></td>
+                    <td><%= el.StudentCourse.githubUrl %></td>
+                    <td><%= el.StudentCourse.score %></td>
+                    <td><%= el.StudentCourse.status %></td>
+                    <td><%= el.StudentCourse.createdAt %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
