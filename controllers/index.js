@@ -51,17 +51,25 @@ class Controller {
                 res.redirect("/login");
             })
             .catch((err) => {
-                res.send(err);
+                if (err.name === "SequelizeValidationError") {
+                    const errors = err.errors.map(el => el.message)
+                    res.send(errors);
+                } else res.send(err);
             })
     }
 
     static student(req, res) {
         const id = req.session.UserId;
         User.findByPk(id, {
-            include: "StudentCourses"
+            include: [
+                { model: Course, as: "StudentCourses" },
+                { model: Profile }
+              ],
+              where: { role: "Student" }
         })
             .then(student => {
-                res.render("student", {student, isLogin: true});
+                // res.send(student)
+                res.render("student", {student, isLogin: true, formatDate});
             })
             .catch((err) => {
                 res.send(err);
@@ -81,7 +89,6 @@ class Controller {
         const options = {
             include: [
               { model: Course, as: "TeacherCourses", where: {}},
-              { model: Course, as: "StudentCourses" },
               { model: Profile }
             ],
             where: { role: "Teacher" }
@@ -110,6 +117,20 @@ class Controller {
             if (err) res.send(err)
             else res.redirect("/login");
         })
+    }
+
+    static destroyCourse(req, res) {
+        const {id} = req.params;
+        Course.findByPk(id)
+            .then(course => {
+                if (!course) throw "Course not found";
+
+                return course.destroy();
+            })
+            .then(() => {
+                res.redirect("/teacher/");
+            })
+            .catch(err => res.send(err))
     }
 }
 

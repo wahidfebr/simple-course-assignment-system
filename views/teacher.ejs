@@ -29,6 +29,7 @@
                 <th>Duration</th>
                 <th>CategoryId</th>
                 <th>Start date</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -40,6 +41,9 @@
                     <td><%= el.duration %></td>
                     <td><%= el.CategoryId %></td>
                     <td><%= formatDate(el.createdAt) %></td>
+                    <td>
+                        <a href="/teacher/delete-course/<%= el.id %>">Delete</a>
+                    </td>
                 </tr>
             <% }) %>
         </tbody>
