@@ -16,8 +16,13 @@ const verifyPassword = (hashedPassword, password) => {
     return argon2.verify(hashedPassword, password);
 }
 
+const formatDate = (date) => {
+    return date.toISOString().split("T")[0];
+}
+
 module.exports = {
     hashPassword,
     verifyPassword,
-    bcrypt
+    bcrypt,
+    formatDate
 }

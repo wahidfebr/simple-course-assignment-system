@@ -1,5 +1,5 @@
 const {User, Profile, Category, Course, StudentCourse} = require("../models");
-const {bcrypt} = require("../helpers");
+const {bcrypt, formatDate} = require("../helpers");
 const {Op} = require("sequelize");
 class Controller {
     static home(req, res) {
@@ -7,7 +7,11 @@ class Controller {
 
         if (req.session.UserId) isLogin = true;
 
-        res.render("index", {isLogin});
+        Category.categories()
+            .then(categories => {
+                res.render("index", {isLogin, categories});
+            })
+            .catch(err => res.send(err))
     }
 
     static loginForm(req, res) {
@@ -15,7 +19,7 @@ class Controller {
     }
 
     static verifyUser(req, res) {
-        const {email, password, saveSession} = req.body;
+        const {email, password} = req.body;
         User.findOne({where: {email}})
             .then(user => {
                 if (!user) throw "User not found";
@@ -92,7 +96,7 @@ class Controller {
         User.findByPk(id, options)
             .then(teacher => {
                 // res.send(teacher)
-                res.render("teacher", {teacher, isLogin: true});
+                res.render("teacher", {teacher, isLogin: true, formatDate});
                 // return StudentCourse.findAll({where: {CourseId: teacher.TeacherCourses.id}})
             })
             .catch((err) => {
