@@ -1,5 +1,6 @@
 const {User, Profile, Category, Course, StudentCourse} = require("../models");
 const {bcrypt} = require("../helpers");
+const {Op} = require("sequelize");
 class Controller {
     static home(req, res) {
         let isLogin = false;
@@ -66,9 +67,29 @@ class Controller {
 
     static teacher(req, res) {
         const id = req.session.UserId;
-        User.findByPk(id, {
-            include: ["TeacherCourses", "StudentCourses"]
-        })
+        const {courseName} = req.query;
+
+        // const options = {
+        //     include: ["TeacherCourses", "StudentCourses", Profile],
+        //     where: {role: "Teacher"}
+        // }
+
+        const options = {
+            include: [
+              { model: Course, as: "TeacherCourses", where: {}},
+              { model: Course, as: "StudentCourses" },
+              { model: Profile }
+            ],
+            where: { role: "Teacher" }
+        };
+
+        if (courseName) {
+            options.include[0].where.name = {
+                [Op.iLike]: `%${courseName}%`
+            }
+        }
+
+        User.findByPk(id, options)
             .then(teacher => {
                 // res.send(teacher)
                 res.render("teacher", {teacher, isLogin: true});
